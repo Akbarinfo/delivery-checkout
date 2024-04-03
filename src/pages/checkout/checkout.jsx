@@ -1,7 +1,19 @@
+import { useState } from "react";
+import CheckoutLeft from "./checkoutLeft";
+import CheckoutRight from "./checkoutRight";
+
 function Checkout() {
-  return <section>
-    <h2>Checkout</h2>
-  </section>;
+  const [payment, setPayment] = useState(0);
+
+  console.log(payment);
+  return (
+    <section>
+      <div className="flex">
+        <CheckoutLeft setPayment={setPayment} payment={payment} />
+        <CheckoutRight />
+      </div>
+    </section>
+  );
 }
 
 export default Checkout;

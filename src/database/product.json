@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Osh",
+    "desc": "Oshni jinnis",
+    "count": 2,
+    "price": 28000
+  },
+  {
+    "id": 3,
+    "title": "Besh Barmoq",
+    "desc": "Besh barmoqni jinnisi",
+    "count": 1,
+    "price": 45000
+  },
+  {
+    "id": 3,
+    "title": "Clab Sendvich",
+    "desc": "Sirni",
+    "count": 3,
+    "price": 33000
+  }
+]

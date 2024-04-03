@@ -1,7 +1,9 @@
+import Checkout from "./pages/checkout/checkout";
+
 function App() {
   return (
     <>
-      <h1>App</h1>
+      <Checkout />
     </>
   );
 }
