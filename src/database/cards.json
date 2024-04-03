@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "uzcard",
+    "name": "Nasirova L",
+    "number": "2697",
+    "logo": "/image/uzcard.png"
+  },
+  {
+    "id": 2,
+    "title": "humo",
+    "name": "Nasirova L",
+    "number": "6248",
+    "logo": "/image/humo.png"
+  },
+  {
+    "id": 3,
+    "title": "visa",
+    "name": "Nasirova L",
+    "number": "2849",
+    "logo": "/image/visa.png"
+  }
+]

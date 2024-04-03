@@ -9,7 +9,6 @@ import productData from "../../database/product.json";
 function CheckoutLeft({ payment, setPayment }) {
   const delivery = 8000;
   const [price, setPrice] = useState(0);
-  const [allprice, setAllPrice] = useState({});
   const [coupon, setCoupon] = useState(null);
   const [percent, setPercent] = useState(null);
   const [couponError, setCouponError] = useState(false);
@@ -26,9 +25,6 @@ function CheckoutLeft({ payment, setPayment }) {
       setPercent(foundCoupon.coupon);
       setCoupon(price * (foundCoupon.coupon / 100));
       setPayment(price - price * (foundCoupon.coupon / 100) + delivery);
-      setAllPrice({
-        coupon: 
-      })
     } else {
       setCoupon(0);
       setPercent(0);
@@ -36,6 +32,11 @@ function CheckoutLeft({ payment, setPayment }) {
       setCouponError(true);
       setPayment(price + delivery);
     }
+
+    setTimeout(() => {
+      e.target.reset();
+      setCouponError(false);
+    }, [5000]);
   };
 
   useEffect(() => {
@@ -43,12 +44,6 @@ function CheckoutLeft({ payment, setPayment }) {
       (acc, item) => acc + item.count * item.price,
       0
     );
-    setAllPrice({
-      coupon: 0,
-      price: total,
-      delivery: delivery,
-      payment: total + delivery,
-    });
     setPrice(total);
     setPayment(total + delivery);
   }, []);

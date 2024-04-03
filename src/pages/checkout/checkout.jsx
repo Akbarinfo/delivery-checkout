@@ -9,7 +9,7 @@ function Checkout() {
   return (
     <section>
       <div className="flex">
-        <CheckoutLeft setPayment={setPayment} payment={payment} />
+        <CheckoutLeft payment={payment} setPayment={setPayment} />
         <CheckoutRight />
       </div>
     </section>
