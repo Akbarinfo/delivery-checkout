@@ -6,9 +6,10 @@ import currencyFormat from "../../utils/currencyFormat";
 import couponData from "../../database/coupon.json";
 import productData from "../../database/product.json";
 
-function CheckoutLeft({ payment, setPayment }) {
+function CheckoutLeft() {
   const delivery = 8000;
   const [price, setPrice] = useState(0);
+  const [payment, setPayment] = useState(0);
   const [coupon, setCoupon] = useState(null);
   const [percent, setPercent] = useState(null);
   const [couponError, setCouponError] = useState(false);
@@ -48,7 +49,6 @@ function CheckoutLeft({ payment, setPayment }) {
     setPayment(total + delivery);
   }, []);
 
-  console.log(coupon);
   return (
     <div className="w-1/2 h-[100vh] bg-[#F8FAFC] p-[10%] py-[100px] overflow-auto webkit-scroll">
       <h2 className="text-2xl font-bold mb-6">Ваш заказ</h2>

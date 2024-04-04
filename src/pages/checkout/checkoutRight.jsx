@@ -12,15 +12,14 @@ function CheckoutRight() {
   const [number, setNumber] = useState("");
   const [open, setOpen] = useState(false);
   const [numberError, setNumberError] = useState(false);
+
   const onSubmit = async (e) => {
     e.preventDefault();
-
     if (+number.includes("_") || number == "") {
       setNumberError(true);
     }
 
     if (!number.includes("_") && number != "") {
-      console.log(number);
       setOpen(true);
     }
   };
@@ -29,7 +28,7 @@ function CheckoutRight() {
     <>
       <div className="w-1/2 h-[100vh] p-[10%] py-[100px] overflow-auto webkit-scroll">
         <Maps />
-        <form className="px-9" onSubmit={(e) => onSubmit(e)}>
+        <form className="px-9" onSubmit={(e) => !open && onSubmit(e)}>
           <label htmlFor="name" className="w-full block mb-4">
             <span className="font-medium text-base mb-2 block">ФИО</span>
             <input
@@ -50,18 +49,17 @@ function CheckoutRight() {
               required
               value={number}
               allowEmptyFormatting
-              format="+998 ## ### ####"
+              format="+998 (##) ### ####"
               onChange={(e) => {
                 setNumber(e.target.value);
-                console.log(e.target.value);
                 if (!+number.includes("_")) {
                   setNumberError(false);
                 }
               }}
               className={`w-full rounded-[12px] border outline-none text-base py-3 px-4 ${
-                numberError
-                  ? "border-[#E53835] text-[#e53835]"
-                  : "border-[#E3E8EF]"
+                !numberError
+                  ? "border-[#E3E8EF]"
+                  : "border-[#E53835] text-[#e53835]"
               }`}
             />
           </label>
@@ -141,9 +139,7 @@ function CheckoutRight() {
         </form>
       </div>
 
-      {
-        open && <Modal number={number} setOpen={setOpen} />
-      }
+      {open && <Modal number={number} setOpen={setOpen} />}
     </>
   );
 }
